@@ -1,0 +1,52 @@
+modeles_evalues:
+  - nom: claude-sonnet
+    fournisseur: anthropic
+    modele: claude-sonnet-5-5
+    actif: true
+
+  - nom: claude-haiku
+    fournisseur: anthropic
+    modele: claude-haiku-5-5
+    actif: true
+
+  - nom: gpt
+    fournisseur: openai
+    modele: A_REMPLIR
+    actif: false
+
+  - nom: mistral
+    fournisseur: openai_compatible
+    base_url: https://api.mistral.ai/v1
+    cle_env: MISTRAL_API_KEY
+    modele: A_REMPLIR
+    actif: false
+
+  - nom: llama-local
+    fournisseur: openai_compatible
+    base_url: http://localhost:11434/v1
+    cle_env: null
+    modele: llama3.1
+    actif: false
+
+juge:
+  nom: juge-claude-opus
+  fournisseur: anthropic
+  modele: claude-opus-5-5
+  temperature: 0
+  max_tokens: 1500
+
+parametres_generation:
+  temperature: 0
+  max_tokens: 2000
+
+donnees_sensibles:
+  personnes:
+    - Pierre Lambert
+    - Sarah
+    - Karim
+    - Julie
+    - Thomas
+    - Nadia
+    - Marc
+  clients:
+    - Altaris

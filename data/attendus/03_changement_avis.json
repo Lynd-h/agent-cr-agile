@@ -1,0 +1,17 @@
+{
+  "piege_court": "Changement d'avis",
+  "piege": "L'équipe décide d'abord de prendre deux stories, puis change d'avis. Le modèle doit garder uniquement la décision finale et signaler le changement.",
+  "doit_contenir": [
+    "Décision finale : seule la story 430 (tableau de bord des limites) est prise dans le sprint 14",
+    "La story 431 passe au sprint 15",
+    "Objectif du sprint : livrer le tableau de bord des limites",
+    "Sarah met à jour le board ce soir",
+    "Nadia envoie les critères d'acceptation de la 430 demain matin",
+    "Risque : la 431 dépend du serveur de messagerie pas encore installé ; capacité 40 points pour 47 points demandés",
+    "Le changement d'avis est signalé (d'abord les deux stories, puis seulement la 430)"
+  ],
+  "ne_doit_pas_contenir": [
+    "La story 431 présentée comme prise dans le sprint 14",
+    "Les deux décisions contradictoires présentées comme valables en même temps"
+  ]
+}

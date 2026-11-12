@@ -1,0 +1,14 @@
+Réunion : Rétrospective – Sprint 13
+Date : 30 octobre 2026
+
+[16:00] Sarah (Scrum Master) : Qu'est-ce qui s'est bien passé pendant ce sprint ?
+[16:01] Thomas (testeur) : La collaboration avec Nadia sur les cas de test, c'était top.
+[16:02] Sarah (Scrum Master) : Et ce qui s'est moins bien passé ?
+[16:02] Marc (développeur front) : Les daily durent trop longtemps, souvent 25 minutes.
+[16:03] Karim (développeur back) : On pourrait peut-être passer à un daily debout, ou limiter à 1 minute par personne.
+[16:04] Julie (Product Owner) : Ou alors on pourrait tester un daily asynchrone sur Teams. Je ne sais pas.
+[16:05] Sarah (Scrum Master) : On en reparle la prochaine fois, je vais me renseigner.
+[16:06] Nadia (Business Analyst) : Autre point : les environnements de recette tombent souvent en panne. On perd des heures.
+[16:07] Karim (développeur back) : Peut-être qu'on devrait demander un deuxième environnement à l'équipe infra.
+[16:08] Sarah (Scrum Master) : C'est une bonne idée, mais il faut d'abord voir le budget avec Julie.
+[16:08] Julie (Product Owner) : Oui, je regarderai.

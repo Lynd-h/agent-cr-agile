@@ -1,0 +1,11 @@
+Réunion : Point projet – équipe Reporting Risques
+
+[14:00] Julie (Product Owner) : Le client Altaris se plaint que l'export Excel est trop lent.
+[14:01] Karim (développeur back) : Oui, au-delà de 50 000 lignes ça prend plusieurs minutes.
+[14:01] Julie (Product Owner) : Il faudrait que quelqu'un regarde ça assez vite.
+[14:02] Marc (développeur front) : Il faudrait aussi mettre à jour la documentation utilisateur, elle date de la version 2.
+[14:02] Julie (Product Owner) : Oui, ce serait bien. Bon, et pour la démo client ?
+[14:03] Thomas (testeur) : Je peux préparer le jeu de données de démo.
+[14:03] Julie (Product Owner) : Parfait, merci Thomas. Il faudra que ce soit prêt avant la démo.
+[14:04] Karim (développeur back) : On fait la démo quand, d'ailleurs ?
+[14:04] Julie (Product Owner) : Je dois vérifier avec le client, je vous redis.

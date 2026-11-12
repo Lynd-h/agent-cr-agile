@@ -1,0 +1,11 @@
+Réunion : Daily – équipe Reporting Risques
+Date : 4 novembre 2026
+
+[09:30] Sarah (Scrum Master) : Bonjour à tous, on fait le tour habituel. Karim, tu commences ?
+[09:30] Karim (développeur back) : Hier j'ai fini l'API d'export des positions. Aujourd'hui je fais les tests unitaires. Pas de blocage.
+[09:31] Marc (développeur front) : Moi j'ai avancé sur l'écran de filtres, il me reste le filtre par devise. Je pense finir aujourd'hui.
+[09:32] Thomas (testeur) : J'ai testé la story 412, j'ai trouvé deux anomalies sur les montants négatifs. Je les ai créées dans Jira.
+[09:32] Sarah (Scrum Master) : Karim, tu peux regarder les anomalies de Thomas après tes tests unitaires ?
+[09:33] Karim (développeur back) : Oui, je les prends cet après-midi.
+[09:33] Nadia (Business Analyst) : De mon côté, je suis bloquée sur la règle de calcul du risque de change, j'attends la réponse de l'équipe Finance depuis lundi.
+[09:34] Sarah (Scrum Master) : D'accord, je relance la Finance aujourd'hui. Autre chose ? Non ? Alors bonne journée.

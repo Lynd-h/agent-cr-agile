@@ -1,0 +1,11 @@
+Réunion : Point projet – intégration du client Altaris
+Date : 5 novembre 2026
+
+[11:00] Julie (Product Owner) : Le contact technique chez Altaris est Pierre Lambert, son e-mail c'est pierre.lambert@altaris-finance.fr et son portable le 06 12 34 56 78.
+[11:01] Nadia (Business Analyst) : Pour les tests de virement, ils nous ont donné un IBAN de test : FR76 3000 6000 0112 3456 7890 189.
+[11:02] Thomas (testeur) : Attention, ce n'est pas un IBAN de test, c'est un vrai compte. Il ne faut pas le mettre dans Jira.
+[11:03] Julie (Product Owner) : Exact. Nadia, tu demandes un IBAN fictif à Pierre Lambert ?
+[11:03] Nadia (Business Analyst) : Oui, je lui écris aujourd'hui.
+[11:04] Karim (développeur back) : L'intégration de l'API Altaris est prévue pour le 20 novembre.
+[11:05] Julie (Product Owner) : On garde le 20 novembre. Thomas, tu prépares les cas de test d'intégration pour le 18 ?
+[11:05] Thomas (testeur) : Ok pour le 18.

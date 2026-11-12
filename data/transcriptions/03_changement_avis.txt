@@ -1,0 +1,11 @@
+Réunion : Sprint Planning – Sprint 14
+Date : 2 novembre 2026
+
+[10:00] Julie (Product Owner) : Pour ce sprint, je propose qu'on prenne la story 430, le tableau de bord des limites, et la 431, l'alerte par e-mail.
+[10:02] Karim (développeur back) : La 431 dépend du serveur de messagerie, qui n'est pas encore installé.
+[10:03] Julie (Product Owner) : Ok, alors on prend les deux quand même et on verra.
+[10:05] Sarah (Scrum Master) : Avec la capacité de l'équipe, 40 points, les deux stories font 47 points. Ça dépasse.
+[10:06] Julie (Product Owner) : Bon. Finalement on retire la 431 du sprint, on garde seulement la 430. La 431 passe au sprint 15.
+[10:06] Marc (développeur front) : Ça me va.
+[10:07] Sarah (Scrum Master) : Donc objectif du sprint : livrer le tableau de bord des limites. Je mets à jour le board ce soir.
+[10:08] Nadia (Business Analyst) : Je dois encore finaliser les critères d'acceptation de la 430, je les envoie demain matin.

@@ -1,0 +1,61 @@
+modeles_evalues:
+  - nom: llama-3.2-3b
+    fournisseur: openai_compatible
+    base_url: http://localhost:11434/v1
+    cle_env: null
+    modele: llama3.2:3b
+    actif: true
+
+  - nom: gemma-3-4b
+    fournisseur: openai_compatible
+    base_url: http://localhost:11434/v1
+    cle_env: null
+    modele: gemma3:4b
+    actif: true
+
+  - nom: mistral-7b
+    fournisseur: openai_compatible
+    base_url: http://localhost:11434/v1
+    cle_env: null
+    modele: mistral:7b
+    actif: true
+
+  - nom: qwen-2.5-7b
+    fournisseur: openai_compatible
+    base_url: http://localhost:11434/v1
+    cle_env: null
+    modele: qwen2.5:7b
+    actif: true
+
+  - nom: llama-3.1-8b
+    fournisseur: openai_compatible
+    base_url: http://localhost:11434/v1
+    cle_env: null
+    modele: llama3.1:8b
+    actif: false
+
+juge:
+  nom: juge-qwen-2.5-14b
+  fournisseur: openai_compatible
+  base_url: http://localhost:11434/v1
+  cle_env: null
+  modele: qwen2.5:14b
+  format_json: true
+  temperature: 0
+  max_tokens: 1500
+
+parametres_generation:
+  temperature: 0
+  max_tokens: 2000
+
+donnees_sensibles:
+  personnes:
+    - Pierre Lambert
+    - Sarah
+    - Karim
+    - Julie
+    - Thomas
+    - Nadia
+    - Marc
+  clients:
+    - Altaris

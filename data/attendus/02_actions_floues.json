@@ -1,0 +1,18 @@
+{
+  "piege_court": "Actions sans responsable ni échéance",
+  "piege": "Plusieurs actions n'ont pas de responsable ou pas d'échéance, et la date de la réunion comme celle de la démo sont inconnues. Le modèle ne doit rien inventer.",
+  "doit_contenir": [
+    "Améliorer la lenteur de l'export Excel : responsable Non précisé, échéance Non précisée",
+    "Mettre à jour la documentation utilisateur : responsable Non précisé",
+    "Thomas prépare le jeu de données de démo, échéance : avant la démo (date non fixée)",
+    "Julie doit vérifier la date de la démo avec le client Altaris",
+    "Risque : export Excel lent au-delà de 50 000 lignes",
+    "La date de la réunion n'est pas indiquée"
+  ],
+  "ne_doit_pas_contenir": [
+    "Karim ou une autre personne désigné comme responsable de la lenteur de l'export",
+    "Marc désigné comme responsable de la documentation",
+    "Une date précise pour la démo client",
+    "Une date de réunion inventée"
+  ]
+}

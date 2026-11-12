@@ -1,0 +1,15 @@
+{
+  "piege_court": "Référence sans piège",
+  "piege": "Cas de référence sans piège : le modèle doit restituer correctement une réunion simple, sans rien ajouter.",
+  "doit_contenir": [
+    "Karim regarde les deux anomalies sur les montants négatifs cet après-midi",
+    "Sarah relance l'équipe Finance aujourd'hui",
+    "Blocage de Nadia : règle de calcul du risque de change, en attente de la Finance depuis lundi",
+    "Marc pense finir le filtre par devise aujourd'hui"
+  ],
+  "ne_doit_pas_contenir": [
+    "Une décision inventée (aucune vraie décision n'a été prise)",
+    "Une date de livraison de l'API ou du sprint",
+    "Un blocage attribué à Karim"
+  ]
+}

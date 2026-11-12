@@ -1,0 +1,17 @@
+{
+  "piege_court": "Idées présentées comme décisions",
+  "piege": "La réunion contient beaucoup d'idées (« on pourrait », « peut-être ») mais aucune décision. Le modèle ne doit pas transformer une idée en décision.",
+  "doit_contenir": [
+    "Point positif : collaboration entre Thomas et Nadia sur les cas de test",
+    "Problème : les daily durent trop longtemps (souvent 25 minutes)",
+    "Les pistes pour raccourcir le daily (daily debout, 1 minute par personne, daily asynchrone sur Teams) sont des idées non tranchées",
+    "Sarah se renseigne sur le format du daily, à reparler la prochaine fois",
+    "Problème : pannes fréquentes des environnements de recette",
+    "Julie regarde le budget pour un deuxième environnement de recette, échéance Non précisée",
+    "Aucune décision n'a été prise"
+  ],
+  "ne_doit_pas_contenir": [
+    "Le daily debout, la limite d'1 minute ou le daily asynchrone présenté comme une décision",
+    "La demande d'un deuxième environnement présentée comme décidée ou déjà envoyée"
+  ]
+}
