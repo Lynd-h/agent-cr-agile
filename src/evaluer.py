@@ -1,5 +1,6 @@
 import argparse
 import json
+import time
 from pathlib import Path
 
 import pandas as pd
@@ -22,6 +23,7 @@ def lire_arguments():
     parser.add_argument("--modeles", nargs="*", help="Noms des modèles à évaluer (par défaut : tous les modèles actifs)")
     parser.add_argument("--transcriptions", nargs="*", help="Début des noms de fichiers à évaluer, par exemple 03 06")
     parser.add_argument("--sans-juge", action="store_true", help="Ne lance pas le LLM-juge (vérifications automatiques seulement)")
+    parser.add_argument("--reprendre", action="store_true", help="Réutilise les comptes-rendus déjà générés dans le dossier de sortie")
     return parser.parse_args()
 
 
@@ -115,26 +117,37 @@ def main():
         print("Aucun modèle actif ou aucune transcription trouvée.")
         return
 
-    lignes = []
+    cas = []
+    dossier_masque = DOSSIER_RESULTATS / "transcriptions_masquees"
+    dossier_masque.mkdir(parents=True, exist_ok=True)
     for fichier in fichiers:
         identifiant = fichier.stem
         attendu = json.loads((RACINE / "data" / "attendus" / f"{identifiant}.json").read_text(encoding="utf-8"))
         masqueur = Masqueur(sensibles.get("personnes"), sensibles.get("clients"))
         transcription = masqueur.masquer(fichier.read_text(encoding="utf-8"))
         attendu = masquer_attendu(attendu, masqueur)
-
         fuites = detecter_fuites(transcription, masqueur)
         if fuites:
             print(f"ATTENTION : masquage incomplet pour {identifiant} : {fuites}")
             continue
-
-        dossier_masque = DOSSIER_RESULTATS / "transcriptions_masquees"
-        dossier_masque.mkdir(parents=True, exist_ok=True)
         (dossier_masque / f"{identifiant}.txt").write_text(transcription, encoding="utf-8")
-        print(f"\n{identifiant} : données masquées {masqueur.resume()}")
+        cas.append((identifiant, transcription, attendu))
 
-        for modele in modeles:
-            print(f"  -> {modele['nom']}")
+    total = len(cas) * len(modeles)
+    print(f"\nPhase 1 : génération de {total} comptes-rendus, un modèle après l'autre")
+    produits = []
+    numero = 0
+    for modele in modeles:
+        dossier_cr = DOSSIER_RESULTATS / "comptes_rendus" / modele["nom"]
+        dossier_cr.mkdir(parents=True, exist_ok=True)
+        for identifiant, transcription, attendu in cas:
+            numero += 1
+            chemin_cr = dossier_cr / f"{identifiant}.md"
+            if args.reprendre and chemin_cr.exists():
+                print(f"  [{numero}/{total}] {modele['nom']} / {identifiant} : déjà fait, repris")
+                produits.append((identifiant, transcription, attendu, modele, chemin_cr.read_text(encoding="utf-8")))
+                continue
+            debut = time.time()
             try:
                 compte_rendu = appeler_llm(
                     modele,
@@ -144,23 +157,25 @@ def main():
                     max_tokens=parametres.get("max_tokens", 2000),
                 )
             except Exception as erreur:
-                print(f"     erreur de génération : {erreur}")
+                print(f"  [{numero}/{total}] {modele['nom']} / {identifiant} : erreur de génération : {erreur}")
                 continue
+            chemin_cr.write_text(compte_rendu, encoding="utf-8")
+            produits.append((identifiant, transcription, attendu, modele, compte_rendu))
+            print(f"  [{numero}/{total}] {modele['nom']} / {identifiant} : fait en {time.time() - debut:.0f} s")
 
-            dossier_cr = DOSSIER_RESULTATS / "comptes_rendus" / modele["nom"]
-            dossier_cr.mkdir(parents=True, exist_ok=True)
-            (dossier_cr / f"{identifiant}.md").write_text(compte_rendu, encoding="utf-8")
-
-            try:
-                ligne = evaluer_une_sortie(
-                    identifiant, attendu, modele, compte_rendu, transcription, config, not args.sans_juge
-                )
-            except Exception as erreur:
-                print(f"     erreur d'évaluation : {erreur}")
-                continue
-            lignes.append(ligne)
-            resume = ligne.get("note_globale", ligne["taux_citations_exactes"])
-            print(f"     ok : {resume}")
+    avec_juge = not args.sans_juge
+    print(f"\nPhase 2 : {'vérifications et notation par le juge' if avec_juge else 'vérifications automatiques'}")
+    lignes = []
+    for numero, (identifiant, transcription, attendu, modele, compte_rendu) in enumerate(produits, start=1):
+        debut = time.time()
+        try:
+            ligne = evaluer_une_sortie(identifiant, attendu, modele, compte_rendu, transcription, config, avec_juge)
+        except Exception as erreur:
+            print(f"  [{numero}/{len(produits)}] {modele['nom']} / {identifiant} : erreur d'évaluation : {erreur}")
+            continue
+        lignes.append(ligne)
+        resume = ligne.get("note_globale", ligne["taux_citations_exactes"])
+        print(f"  [{numero}/{len(produits)}] {modele['nom']} / {identifiant} : {resume} ({time.time() - debut:.0f} s)")
 
     if not lignes:
         print("Aucun résultat.")

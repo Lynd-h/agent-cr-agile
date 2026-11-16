@@ -93,7 +93,10 @@ Lancer l'évaluation complète :
 python src/evaluer.py
 python src/evaluer.py --modeles claude-sonnet llama-local --transcriptions 05 06
 python src/evaluer.py --sans-juge
+python src/evaluer.py --config config_local.yaml --sortie resultats_local --reprendre
 ```
+
+L'évaluation se fait en 2 phases : d'abord tous les comptes-rendus, un modèle après l'autre (pour éviter de recharger les modèles), puis la notation par le juge. Si le script est interrompu, `--reprendre` réutilise les comptes-rendus déjà générés.
 
 Résultats dans `resultats/` :
 - `transcriptions_masquees/` : ce qui a réellement été envoyé aux LLM ;
